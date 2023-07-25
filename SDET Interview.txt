@@ -1,0 +1,32 @@
+Technical round :
+1. About urself
+2. Difference between Rest API and XML
+3. What are the header parameters in Rest API
+4. What do you mean by interface , can we declare variables and methods in it.
+5. If yes for the above question - can we be able to change the scope of the variable declared
+6.Can we able to return the abstract methods ? why
+7. Difference between generic and normal functions and where can we use it our framework
+8. Difference between put and post
+9. Where exactly can we use the put method in API automation
+10. How to make a wait when multiple API calls are trigger simultaneously
+11. How to validate the API response
+12. Difference between SERIALISATION and Deserilisation
+13. API error codes , scenarios
+14. How to write the test cases for API for train speed scenario varies from 1 to 100km /hr
+15.Write the syntax for post request using Java
+16. Why we r using getters and setters and any benefits over normal call
+17. Can we automate the service related errors and how can we handle those exceptions in the framework
+18. Jars needed for Rest assured automation
+19. How do you handle dynamic web table and how to write xpath to read an unknow value of a cell.
+20. How to handle mouse operations
+21. Agile cermenois
+
+Technomangerical round:
+1. About roles and responsibilities of my current project
+2. Write a java program to count the vowles occurence of a given string
+3. Write a program to remove the duplicate chars in a string
+4. Write a xpath for an dynamic changing element in a webpage
+5. Write a syntax for cucumber based file upload scenario
+6. Explain the rest assured automation framework and it's structure
+7. Agile methodology and it's process
+8. About role discussion and client related discussion

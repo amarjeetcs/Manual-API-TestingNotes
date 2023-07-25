@@ -1,0 +1,223 @@
+						API Testing
+						-----------
+Q.What is Client?
+->Client is our own machine(computer device) which is used to send request and get the response back.
+
+Q.What is server?
+->Server is a place where all the resources is kept we are just sending request through client and getting the 
+  Response back from the server if resorce is available it is bring out the response otherwise it will display
+  error page.
+
+Q.What is client server architecture?
+->it is represent the architecture of the application mainly it is three types.
+  1.one tier architecture   2.two tier architecture   3.three tier architecture.
+
+Q.What is Api?
+->API statands for application programming interface which is uses to communicate between two application.where
+  application may differ in the term of technologies.
+
+Q.What are the types of API?
+->API mainly have two types.
+  1.SOAP(simple object access protocal) based api  2.Rest based api.
+  
+Q.What are the Rest Principles?
+->Rest(representanal state transfer protocal) is a architectural style and set of principle which is must followed
+  by the developer to crate a Rest API's.
+  1.Resource->Resource can be anything which exist physicaly or over the server.  
+  2.URI->URI(Uniform Resource Identifier)which is used to identifiy the resource.
+  3.Uniform Interface->Resource, URI, Representation will be configured under this.
+  4.Client & Server->client mean from where we are hitting request and server means from where we are getting
+    and response back the resource.  
+  5.Code on Demand->code on demand 
+  6.Layered architecture->it should be layered architecture.
+  7.Stateles->it should be stateless.
+  8.Representation->representation means how you are represent the request and response or in which format whethre
+    it is json/xml.
+
+Q.What is webservices & API?
+->Both are same but few difference between both.
+->All the webservices are API but All the API's are not webservices.
+->A web service is a set of rules and protocols that allows different applications to communicate over the 
+  internet.
+->APIs can be used for various types of applications and systems, not just limited to web-based interactions. 
+  APIs can be found in desktop applications, mobile apps, operating systems, libraries, and more.
+->once you will put api over internet it will become webservices before publishing api over intrernet it was API.
+->webservice need network while api does not need any network.
+
+Q.What are the Rest Api Methods?
+->Rest API have some of methods to work with.
+  1.GET()->used to fetct/get the data from server.
+  2.POST()->used to create new data on server.
+  3.PUT()->used to update the whole data.    
+  4.PATCH()->used to update the particular data.    
+  5.DELETE()->used to delete the data.
+
+Q.Difference between PUT() and PATCH()?
+->Both are used to updating data on server/Db but PUT update whole data where as Patch update particular data.
+
+Q.Difference between HTTP and HTTPS?
+->Both are used to communication over the web with protocal but HTTP is not secure where as HTTPS is secure.
+
+Q.What is Payload?
+->Payload means body in the http request and response message.
+
+Q.What is Postman?
+->it is API testing tool.
+->Postman used to perform manual API testing.
+
+Q.What are the HTTP status code?
+=>200 series
+------------
+200->ok
+201->created
+202->accepted
+203->non-authorized information
+204->no content
+
+=>400 series
+------------
+400->Bad request
+401->unauthorized
+403->forbidden
+404->not found
+409->conflict
+
+=>500 series
+------------
+500->internal server error
+501->not implemented
+502->bad gatway
+503->service unavailable
+504->gateway timeout
+599->network timeout
+
+
+Q.what is json?
+->Json stands for javascript object notation which is light weight and used to intercahnge format.
+->Json is easy to read this is the reason we useses json more than the xml.
+->Json store data into key and value pairs.
+Ex:-  {
+   "data": [
+        {
+            "name": "Amarjeet",
+            "age": 23,
+            "city": "Bangalore"
+        }
+        ]
+        
+	    
+}
+
+Q.what is xml?
+->XML used to interchange data format and it is bit hard to read compare to json.
+->XML store data into tags and element.
+Ex: <Person>
+        <FirstName>John</FirstName>
+   	<LastName>Doe</LastName>
+   	<Age>30</Age>
+   	<Email>john@example.com</Email>
+    </Person>
+
+Q.what is json path?
+->used to access or capture the properties of json data.
+->json index start from 0
+
+Ex:- 
+{
+   "data": [
+        {
+            "name": "Amarjeet",
+            "age": 23,
+            "city": "Bangalore"
+        }
+        ]
+        
+	    
+}
+
+->if we want to access age=23 then we need to write like this data[0].age this is json path.
+
+=>Response validation in API testing:-
+1.Status code: mainly checking status code
+2.Header: we are mainly chceking content type
+3.Cookies
+4.Response time:we are cheking response time
+5.Response body
+
+To perform validation we need to assertion it is nothing it is validation one of library postman provides
+for assertion is called pm->library which provides function which is writen in javascripts so we need basic idea of javascript.
+
+=>chai assertion library:-
+pm.test("Test name",function()
+	{
+	//assertion code
+	});
+             
+            or 
+
+pm.test("Test name",()=>{
+			//assertion code
+			});
+
+
+=>Below is the response validation api testing practical use can aslo reference from postman chai library
+//we can use any in below two 
+pm.test("Status code is 200",function()
+{
+    pm.response.to.have.status(200);
+});
+
+pm.test("Status code is 200",()=>
+{
+    pm.response.to.have.status(200);
+});
+
+//check multiple status code in single test case
+pm.test("successfull get request",()=>
+{
+    pm.expect(pm.response.code).to.be.oneOf([201,200]);
+});
+//check the status code of created
+pm.test("status code of created",()=>{
+    pm.response.to.have.status("Created");
+});
+//check header content type
+pm.test("Content type header is present",()=>{
+    pm.response.to.have.header("Content-Type");
+});
+//check response header having a paticular value
+pm.test("checking content type header is application/json",()=>{
+    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');
+});
+
+
+==>script and variable 
+---------------------->
+=>Pre-Request script and Test its execution flow
+Pre-requestScript------->Request------>Response------>Tests will execute.
+
+=>Collection--->Folder--->Request will execute
+
+=>Variables
+-----------
+what ?
+why ?
+where ?
+
+
+Scope
+-----
+Global-->access from anywhere.
+Collection-->it is only accessible from inside the collection.
+Environment-->accesible from indide the collection but we need to switch the envirnment everytime.
+Local-->accesible from within only the particular request.
+data-->external file and csv/text.
+
+
+jio
+genpact
+accenture
+phonepay
+mphasis
+upgraid
+
